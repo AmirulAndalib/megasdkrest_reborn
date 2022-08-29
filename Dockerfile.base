@@ -14,7 +14,7 @@ RUN mkdir -p ${GOPATH}/src ${GOPATH}/bin
 ENV GO111MODULE=on
 
 RUN apk update && apk upgrade && \
-    apk add --update --upgrade --no-cache go vim git make musl-dev curl \
+    apk add --update --upgrade --no-cache go vim git make musl-dev curl && \
     go version
 
 
