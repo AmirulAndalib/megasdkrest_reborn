@@ -1,4 +1,4 @@
-FROM golang:alpine
+FROM alpine:edge
  
 
 # LABEL
@@ -7,8 +7,27 @@ LABEL org.opencontainers.image.source="https://github.com/amirulandalib/megasdkr
 LABEL org.opencontainers.image.description="megasdkrest"
 
 # Deps
+RUN apk add --update --no-cache go vim git make musl-dev curl \
+   export GOPATH=/root/go \
+   export PATH=${GOPATH}/bin:/usr/local/go/bin:$PATH \
+   export GOBIN=$GOROOT/bin \
+   mkdir -p ${GOPATH}/src ${GOPATH}/bin \
+   export GO111MODULE=on \
+   go version
+
+
 RUN apk add --no-cache -X http://dl-cdn.alpinelinux.org/alpine/edge/testing --update \
     zlib-dev zlib-static curl-dev curl-static openssl-dev openssl-libs-static \
     alpine-sdk git libtool autoconf automake linux-headers musl-dev m4 build-base perl ca-certificates \
     crypto++-dev brotli-dev brotli-static unzip tar xz wget \
-    c-ares-dev c-ares-static sqlite-dev sqlite-static libsodium-dev libsodium-static  nghttp2-dev nghttp2-static readline readline-dev bash
+    c-ares-dev c-ares-static sqlite-dev sqlite-static libsodium-dev libsodium-static  nghttp2-dev nghttp2-static readline readline-dev bash \
+    brotli-libs brotli \
+    c-ares-dev c-ares-static sqlite-dev sqlite-static libsodium-dev libsodium-static  nghttp2-dev nghttp2-static readline readline-dev \
+    libtool curl-dev libsodium-dev c-ares-dev sqlite-dev freeimage-dev swig boost-dev \
+    libpthread-stubs zlib-dev libpq-dev clang clang-dev ccache gettext gettext-dev musl \
+    gawk crypto++ crypto++-dev sudo py3-wheel musl-dev qbittorrent python3 \
+    python3-dev busybox musl-locales \
+    qbittorrent-nox py3-pip py3-lxml aria2 p7zip xz curl pv jq ffmpeg musl-locales parallel \
+    neofetch git make g++ gcc automake zip unzip autoconf speedtest-cli mediainfo bash \
+    alpine-sdk libffi-dev py3-virtualenv libffi cmake icu-data-full \
+    dpkg coreutils
