@@ -1,4 +1,4 @@
-FROM golang:alpine
+FROM golang:alpine3.15
  
 
 # LABEL
@@ -9,15 +9,5 @@ LABEL org.opencontainers.image.description="megasdkrest"
 RUN apk add --no-cache -X http://dl-cdn.alpinelinux.org/alpine/edge/testing --update \
     unzip tar xz wget alpine-sdk git libtool autoconf automake linux-headers musl-dev m4 \
     build-base perl ca-certificates zlib-dev zlib-static openssl-dev openssl-libs-static \
-    brotli-dev brotli-static crypto++-dev crypto++ c-ares-dev c-ares-static sqlite-dev \
-    sqlite-static libsodium-dev libsodium-static curl-dev curl-static nghttp2-dev nghttp2-static readline readline-dev \
-    brotli-libs brotli \
-    c-ares-dev c-ares-static sqlite-dev sqlite-static libsodium-dev \
-    libtool curl-dev libsodium-dev c-ares-dev sqlite-dev swig boost-dev \
-    libpthread-stubs zlib-dev libpq-dev clang clang-dev ccache gettext gettext-dev musl \
-    gawk sudo musl-dev \
-    busybox musl-locales \
-    wget xz curl pv jq ffmpeg musl-locales parallel \
-    neofetch git make g++ gcc automake zip unzip autoconf bash \
-    alpine-sdk libffi-dev libffi cmake icu-data-full \
-    dpkg coreutils
+    brotli-dev brotli-static crypto++-dev crypto++-static c-ares-dev c-ares-static sqlite-dev \
+    sqlite-static libsodium-dev libsodium-static curl-dev curl-static nghttp2-dev nghttp2-static
