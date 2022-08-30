@@ -13,7 +13,7 @@ RUN apk add --no-cache -X http://dl-cdn.alpinelinux.org/alpine/edge/testing --up
     sqlite-static libsodium-dev libsodium-static curl-dev curl-static nghttp2-dev nghttp2-static readline readline-dev \
     brotli-libs brotli \
     c-ares-dev c-ares-static sqlite-dev sqlite-static libsodium-dev \
-    libtool curl-dev libsodium-dev c-ares-dev sqlite-dev freeimage-dev swig boost-dev \
+    libtool curl-dev libsodium-dev c-ares-dev sqlite-dev swig boost-dev \
     libpthread-stubs zlib-dev libpq-dev clang clang-dev ccache gettext gettext-dev musl \
     gawk sudo musl-dev \
     busybox musl-locales \
