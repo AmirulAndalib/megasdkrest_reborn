@@ -1,22 +1,10 @@
-FROM alpine:edge
+FROM golang:alpine
  
 
 # LABEL
 
 LABEL org.opencontainers.image.source="https://github.com/amirulandalib/megasdkrest_reborn"
 LABEL org.opencontainers.image.description="megasdkrest"
-
-# Deps
-ENV GOPATH=/root/go
-ENV PATH=$GOPATH/bin:/usr/local/go/bin:$PATH
-ENV GOBIN=$GOROOT/bin
-RUN mkdir -p "$GOPATH/src" "$GOPATH/bin" && chmod -R 777 "$GOPATH"
-ENV GO111MODULE=on
-
-RUN apk update && apk upgrade && \
-    apk add --update --upgrade --no-cache go vim git make musl-dev curl && \
-    go version
-
 
 RUN apk add --no-cache -X http://dl-cdn.alpinelinux.org/alpine/edge/testing --update \
     unzip tar xz wget alpine-sdk git libtool autoconf automake linux-headers musl-dev m4 \
