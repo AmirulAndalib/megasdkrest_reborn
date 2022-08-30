@@ -8,9 +8,9 @@ LABEL org.opencontainers.image.description="megasdkrest"
 
 # Deps
 ENV GOPATH=/root/go
-ENV PATH=${GOPATH}/bin:/usr/local/go/bin:$PATH
+ENV PATH=$GOPATH/bin:/usr/local/go/bin:$PATH
 ENV GOBIN=$GOROOT/bin
-RUN mkdir -p ${GOPATH}/src ${GOPATH}/bin
+RUN mkdir -p "$GOPATH/src" "$GOPATH/bin" && chmod -R 777 "$GOPATH"
 ENV GO111MODULE=on
 
 RUN apk update && apk upgrade && \

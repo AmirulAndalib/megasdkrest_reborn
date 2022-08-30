@@ -15,7 +15,7 @@ RUN git clone https://github.com/meganz/sdk.git sdk && cd sdk && \
 RUN mkdir -p /usr/local/go/src/ && cd /usr/local/go/src/ && \
     git clone https://github.com/AmirulAndalib/megasdkgo && \
     cd megasdkgo && rm -rf .git && \
-    mkdir include && cp -r /go/sdk/include/* include && \
+    mkdir include && cp -r /root/go/sdk/include/* include && \
     mkdir .libs && \
     cp /usr/lib/lib*.a .libs/ && \
     cp /usr/lib/lib*.la .libs/ && \
@@ -23,7 +23,7 @@ RUN mkdir -p /usr/local/go/src/ && cd /usr/local/go/src/ && \
 
 # MegaSDK-REST
 RUN go build -ldflags "-linkmode external -extldflags '-static' -s -W" . && \
-    mkdir -p /go/build/ && mv megasdkrpc ../build/megasdkrest-${HOST_CPU_ARCH}
+    mkdir -p /root/go/build/ && mv megasdkrpc ../build/megasdkrest-${HOST_CPU_ARCH}
 
 FROM scratch AS megasdkrest
 
