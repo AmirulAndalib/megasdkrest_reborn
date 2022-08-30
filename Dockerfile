@@ -22,7 +22,8 @@ RUN mkdir -p /usr/local/go/src/ && cd /usr/local/go/src/ && \
     go tool cgo megasdkgo.go
 
 # MegaSDK-REST
-RUN go build -ldflags "-linkmode external -extldflags '-static' -s -W" . && \
+RUN git clone https://github.com/AmirulAndalib/megasdkrest_reborn temp && cd temp && \
+    go build -ldflags "-linkmode external -extldflags '-static' -s -W" . && \
     mkdir -p /go/build/ && mv megasdkrpc ../build/megasdkrest-${HOST_CPU_ARCH}
 
 FROM scratch AS megasdkrest
