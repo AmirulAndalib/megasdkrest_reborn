@@ -11,6 +11,8 @@ import (
 	"github.com/urfave/cli/v2"
 )
 
+var Version string
+
 func fileExists(filename string) bool {
     info, err := os.Stat(filename)
     if os.IsNotExist(err) {
@@ -125,7 +127,11 @@ func main() {
 			Usage: "To start the server on a Unix Domain Socket",
 		},
 	}
-	app.Version = "0.1"
+	if Version == "" {
+		app.Version = "0.1.0"
+	} else {
+		app.Version = Version
+	}
 	err := app.Run(os.Args)
 	if err != nil {
 		log.Fatal(err)

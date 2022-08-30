@@ -1,12 +1,13 @@
-# MEGASDK-REST 
-MegaSDK downloading functionality as a rest server. this project is my [megasdkgo](https://github.com/jaskaranSM/megasdkgo) project wrapped in a rest server.
+# MegaSDK-REST 
+MegaSDK downloading functionality as a rest server. This project is jaskaranSM's [megasdkgo](https://github.com/jaskaranSM/megasdkgo) project wrapped in a rest server.
 
-# Documentation
+## Documentation
 Documentation is divided into two categories.
-## server usage
+
+### Server usage
 Read output of --help command
 
-## client usage
+### Client usage
 There are basically five endpoints on server.
 ```
 POST /login
@@ -42,9 +43,14 @@ Do a GET on
 ```
 /dlinfo/{gid}
 ``` 
-the gid here is variable, if the server have that dl in its storage then it will return details of the download, if not then empty details with friendly message about what went wrong will be returned.
+The gid here is variable, if the server have that dl in its storage then it will return details of the download, if not then will return empty details with friendly message about what went wrong.
 
 **Ping**: 
 Just for testing if the server is up or not.
 
-**NOTE**: Only supports GNU/Linux at the moment.
+**NOTE**: 
+Only supports GNU/Linux at the moment.
+
+### Credits
+- [jaskaranSM](https://github.com/jaskaranSM) - Created the project
+- [Viswanath](https://github.com/ViswanathBalusu) - Added some features
